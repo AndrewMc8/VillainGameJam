@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] CharacterController2D controller;
     [SerializeField] Animator animator;
-    [SerializeField] float movementSpeed;
+    [SerializeField] float speed;
 
     Vector2 direction = Vector2.zero;
     bool jump = false;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        direction.x = Input.GetAxis("Horizontal") * movementSpeed;
+        direction.x = Input.GetAxis("Horizontal") * speed;
         animator.SetFloat("Speed", Mathf.Abs(direction.x));
 
         if (Input.GetButtonDown("Jump"))
