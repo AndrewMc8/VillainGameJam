@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 1960287176}
   - component: {fileID: 1960287175}
   - component: {fileID: 1960287177}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: IsGorund
   m_Icon: {fileID: 0}
@@ -1632,7 +1632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7988290562974417520, guid: 825d00e6b9b4b3c4092520727fa8028c, type: 3}
       propertyPath: speed
-      value: 400
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8452587464435552228, guid: 825d00e6b9b4b3c4092520727fa8028c, type: 3}
       propertyPath: m_RootOrder
