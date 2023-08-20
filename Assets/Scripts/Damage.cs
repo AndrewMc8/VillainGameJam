@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Damage : MonoBehaviour
@@ -7,6 +8,13 @@ public class Damage : MonoBehaviour
     [SerializeField] float damage = 0;
     [SerializeField] bool oneTime = true;
     [SerializeField] string[] avoidTags;
+
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,21 +52,12 @@ public class Damage : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void Update()
     {
-        if (avoidTags.Length != 0)
+        if (Input.GetButtonDown("Fire1"))
         {
-            foreach (string tag in avoidTags)
-            {
-                if (tag == other.gameObject.tag) return;
-            }
-        }
-
-        if (!oneTime) return;
-
-        if (other.gameObject.TryGetComponent<Health>(out Health health))
-        {
-            health.Damage(damage);
+            anim.SetTrigger("Attack");
+            Debug.Log("attacking");
         }
     }
 }
