@@ -195,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8452587464435552228}
   - component: {fileID: 7988290562974417520}
+  - component: {fileID: 1610910081693784939}
   - component: {fileID: 6083459628053944118}
   - component: {fileID: 3054301630780989124}
   - component: {fileID: 4453704682885715713}
@@ -241,6 +242,27 @@ MonoBehaviour:
   controller: {fileID: 6083459628053944118}
   animator: {fileID: 4453704682885715713}
   speed: 1
+--- !u!114 &1610910081693784939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7208101901808047443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd14eb7ff57c64a4aaf1ed1670638b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 5
+  attackPower: 0
+  PlayerCollider: {fileID: 8667793911316370182}
+  colliderDistance: 0
+  range: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackFX: {fileID: 0}
 --- !u!114 &6083459628053944118
 MonoBehaviour:
   m_ObjectHideFlags: 0
