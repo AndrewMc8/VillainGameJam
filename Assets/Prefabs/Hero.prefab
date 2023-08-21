@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 144340586203399471}
   spriteRenderer: {fileID: 2068142893089051047}
-  speed: 5
+  speed: 4
   groundTransform: {fileID: 4488494897235183199}
   groundLayerMask:
     serializedVersion: 2
@@ -67,7 +67,7 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  health: 100
+  health: 30
 --- !u!212 &2068142893089051047
 SpriteRenderer:
   m_ObjectHideFlags: 0
