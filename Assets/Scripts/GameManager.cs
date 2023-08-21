@@ -15,6 +15,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject exitBtn;
     [SerializeField] TMP_Text[] evilTxt;
     [SerializeField] float delay = 3;
+    [Header("Game")]
+    [SerializeField] int enemiesLeft;
+    [SerializeField] GameObject normalBackground;
+    [SerializeField] GameObject doneBackground;
+    [SerializeField] GameObject spawner;
 
     float timer;
 
@@ -26,17 +31,25 @@ public class GameManager : Singleton<GameManager>
         sBtn.onClick.AddListener(StartOnClick);
         qBtn.onClick.AddListener(ExitOnClick);
 
+        numLeftTxt.text = enemiesLeft + ": Remain";
+
         timer = delay;
     }
 
     public void Update()
     { 
-        
+        if(enemiesLeft == 0)
+        {
+            normalBackground.SetActive(false);
+            doneBackground.SetActive(true);
+            spawner.SetActive(false);
+        }
     }
 
-    public void SetNumLeft(float numLeft)
+    public void SetNumLeft()
     {
-        numLeftTxt.text = numLeft + ": Remain";
+        enemiesLeft--;
+        numLeftTxt.text = enemiesLeft + ": Remain";
     }
 
     public void SetTileScreen(bool show)

@@ -146,6 +146,7 @@ public class AIController2D : MonoBehaviour, IDamagable
 		{
 			animator.SetTrigger("Death");
 			//velocity = Vector2.zero;
+			GameManager.Instance.SetNumLeft();
 			Destroy(gameObject);
 		}
 	}
