@@ -44,6 +44,12 @@ public class GameManager : Singleton<GameManager>
         if(titleScreen.activeInHierarchy)
         {
             timer -= Time.deltaTime;
+            if (timer <= 0 && winTxt.activeInHierarchy)
+            {
+                Application.Quit();
+                Debug.Log("exit");
+            }
+
             if (timer <= 0 && !title.activeInHierarchy)
             {
                 if (!evilTxt[0].activeInHierarchy) evilTxt[0].SetActive(true);
@@ -78,13 +84,13 @@ public class GameManager : Singleton<GameManager>
                 Destroy(player.GetComponent<SpriteRenderer>(), 2.0f);
                 timer = delay;
             }
-            else if (timer <= 0 && !player.GetComponent<SpriteRenderer>())
+            else if (timer <= 0 && !winTxt.activeInHierarchy)
             {
-                timer = delay;
+                Debug.Log("test");
+                timer = delay + 3;
                 titleScreen.SetActive(true);
                 winTxt.SetActive(true);
             }
-            else if (timer <= 0 && winTxt.activeInHierarchy) Application.Quit();
         }
     }
 
