@@ -9,11 +9,11 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("UI")]
     [SerializeField] TMP_Text numLeftTxt;
-    [SerializeField] GameObject tileScreen;
+    [SerializeField] GameObject titleScreen;
     [SerializeField] GameObject title;
     [SerializeField] GameObject startBtn;
     [SerializeField] GameObject exitBtn;
-    [SerializeField] TMP_Text[] evilTxt;
+    [SerializeField] GameObject[] evilTxt;
     [SerializeField] float delay = 3;
     [Header("Game")]
     [SerializeField] int enemiesLeft;
@@ -27,7 +27,6 @@ public class GameManager : Singleton<GameManager>
     {
         Button sBtn = startBtn.GetComponent<Button>();
         Button qBtn = exitBtn.GetComponent<Button>();
-        Button titleBtn = tileScreen.GetComponent<Button>();
         sBtn.onClick.AddListener(StartOnClick);
         qBtn.onClick.AddListener(ExitOnClick);
 
@@ -37,7 +36,26 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void Update()
-    { 
+    {
+        if(titleScreen.activeInHierarchy)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0 && !title.activeInHierarchy)
+            {
+                if (!evilTxt[0].activeInHierarchy) evilTxt[0].SetActive(true);
+                else if(!evilTxt[1].activeInHierarchy) evilTxt[1].SetActive(true);
+                else if (evilTxt[1].activeInHierarchy)
+                {
+                    foreach (var txt in evilTxt) txt.SetActive(false);
+                    startBtn.SetActive(true);
+                    exitBtn.SetActive(true);
+                    title.SetActive(true);
+                }
+
+                timer = delay;
+            }
+        }
+
         if(enemiesLeft == 0)
         {
             normalBackground.SetActive(false);
@@ -52,14 +70,14 @@ public class GameManager : Singleton<GameManager>
         numLeftTxt.text = enemiesLeft + ": Remain";
     }
 
-    public void SetTileScreen(bool show)
+    public void SetTitleScreen(bool show)
     {
-        tileScreen.SetActive(show);
+        titleScreen.SetActive(show);
     }
 
     public void StartOnClick()
     {
-        SetTileScreen(false);
+        SetTitleScreen(false);
     }
 
     public void ExitOnClick()

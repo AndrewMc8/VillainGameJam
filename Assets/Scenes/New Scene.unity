@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &17006586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1055,13 +1055,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLeftTxt: {fileID: 1522383680}
-  tileScreen: {fileID: 1594196279}
+  titleScreen: {fileID: 1594196279}
   title: {fileID: 815659198}
   startBtn: {fileID: 17006585}
   exitBtn: {fileID: 999369347}
   evilTxt:
-  - {fileID: 1365181736}
-  - {fileID: 2084598723}
+  - {fileID: 1365181734}
+  - {fileID: 2084598721}
   delay: 3
   enemiesLeft: 5
   normalBackground: {fileID: 654468106}
@@ -1168,7 +1168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &815659199
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1497,7 +1497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &999369348
 RectTransform:
   m_ObjectHideFlags: 0
