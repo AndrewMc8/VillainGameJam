@@ -1072,7 +1072,7 @@ MonoBehaviour:
   - {fileID: 2084598721}
   winTxt: {fileID: 1715379128}
   delay: 3
-  enemiesLeft: 1
+  enemiesLeft: 5
   normalBackground: {fileID: 654468106}
   doneBackground: {fileID: 890994202}
   spawner: {fileID: 1098062410}
@@ -1907,8 +1907,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098062410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.61, y: 2.65, z: 0}
-  m_LocalScale: {x: 70, y: 10, z: 1}
+  m_LocalPosition: {x: 15.61, y: 0.73, z: 0}
+  m_LocalScale: {x: 70, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   fires:
   - {fileID: 7410723275812710204, guid: 211bc965ce59ad944a136aed5a8559e8, type: 3}
   - {fileID: 544746345911886463, guid: 7d0af1cbaef6af14898273dc29fa3cd6, type: 3}
-  delay: 3
+  delay: 1
 --- !u!1 &1263718857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,7 +2182,7 @@ MonoBehaviour:
   m_text: The world will be coming to an end soon...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ac15bb25e7fe7446910a570c644753a, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -7807154518047586191, guid: 5ac15bb25e7fe7446910a570c644753a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3273,7 +3273,7 @@ MonoBehaviour:
   m_text: 'No one can stop me.
 
 
-    Not even you!'
+    Not even you...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ac15bb25e7fe7446910a570c644753a, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6450,7 +6450,7 @@ MonoBehaviour:
   m_text: I must be the one to cause it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ac15bb25e7fe7446910a570c644753a, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -7807154518047586191, guid: 5ac15bb25e7fe7446910a570c644753a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
