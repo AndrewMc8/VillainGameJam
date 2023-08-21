@@ -14,14 +14,17 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject startBtn;
     [SerializeField] GameObject exitBtn;
     [SerializeField] GameObject[] evilTxt;
+    [SerializeField] GameObject winTxt;
     [SerializeField] float delay = 3;
     [Header("Game")]
     [SerializeField] int enemiesLeft;
     [SerializeField] GameObject normalBackground;
     [SerializeField] GameObject doneBackground;
     [SerializeField] GameObject spawner;
+    [SerializeField] GameObject player;
 
     float timer;
+    Animator playerAnimator;
 
     public void Start()
     {
@@ -31,6 +34,7 @@ public class GameManager : Singleton<GameManager>
         qBtn.onClick.AddListener(ExitOnClick);
 
         numLeftTxt.text = enemiesLeft + ": Remain";
+        playerAnimator = player.GetComponent<Animator>();
 
         timer = delay;
     }
@@ -46,7 +50,11 @@ public class GameManager : Singleton<GameManager>
                 else if(!evilTxt[1].activeInHierarchy) evilTxt[1].SetActive(true);
                 else if (evilTxt[1].activeInHierarchy)
                 {
-                    foreach (var txt in evilTxt) txt.SetActive(false);
+                    foreach (var txt in evilTxt)
+                    {
+                        txt.SetActive(false);
+                        Destroy(txt);
+                    }
                     startBtn.SetActive(true);
                     exitBtn.SetActive(true);
                     title.SetActive(true);
@@ -56,11 +64,27 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        if(enemiesLeft == 0)
+        if (enemiesLeft == 0)
         {
             normalBackground.SetActive(false);
             doneBackground.SetActive(true);
             spawner.SetActive(false);
+
+            timer -= Time.deltaTime;
+
+            if (timer <= 0 && player.GetComponent<SpriteRenderer>())
+            {
+                playerAnimator.SetTrigger("Teleport");
+                Destroy(player.GetComponent<SpriteRenderer>(), 2.0f);
+                timer = delay;
+            }
+            else if (timer <= 0 && !player.GetComponent<SpriteRenderer>())
+            {
+                timer = delay;
+                titleScreen.SetActive(true);
+                winTxt.SetActive(true);
+            }
+            else if (timer <= 0 && winTxt.activeInHierarchy) Application.Quit();
         }
     }
 
@@ -68,6 +92,7 @@ public class GameManager : Singleton<GameManager>
     {
         enemiesLeft--;
         numLeftTxt.text = enemiesLeft + ": Remain";
+        timer = delay;
     }
 
     public void SetTitleScreen(bool show)
@@ -78,6 +103,12 @@ public class GameManager : Singleton<GameManager>
     public void StartOnClick()
     {
         SetTitleScreen(false);
+        title.SetActive(false);
+        exitBtn.SetActive(false);
+        startBtn.SetActive(false);
+        Destroy(title);
+        Destroy(startBtn);
+        Destroy(exitBtn);
     }
 
     public void ExitOnClick()
